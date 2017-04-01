@@ -1,0 +1,428 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>task_1_6_1</title>
+	<style type="text/css">
+		body{
+			background-color:#767272;
+		}
+		p{
+			margin:0;
+		}
+		.wrapper_paper{
+			margin:0 auto;
+			background-color:#FBF6F6;
+			width:980px;
+			height:1386px;
+		}
+		.middle_paper{
+			width:892px;
+			margin:0 auto;
+		}
+		header{
+			height:61px;
+			border-bottom:2px solid #938e8c;
+			background-image:url('img/log1.png');
+			background-repeat:no-repeat;
+			/* background-size */
+			position:relative;
+		}
+		.header_textl{
+			font-size:12px;
+			color:#fff;
+			font-family:'SimHei';
+			display:block;
+			position:absolute;
+			bottom:0;
+			left:0;
+		}
+		.header_text2{
+			font-size:12px;
+			color:#d45d5c;
+			font-family:'SimHei';
+			display:block;
+			position:absolute;
+			bottom:0;
+			right:0;
+		}
+		.paper_title{
+			margin-top:34px;
+			position:relative;
+
+		}
+		.paper_title_left{
+			width: 641px;
+			height: 301px;
+			background-image:url(img/log4.png);
+			background-repeat:no-repeat;
+		}
+		.paper_title_left img{
+			opacity:0.5;
+		}
+		.title_left_img1{
+			float:left;
+		}
+		.title_left_img1{
+			float:right;
+		}
+		.paper_title_right{
+			width:203px;
+			margin-left:50px;
+			border-top:2px solid #cc8091;
+			position:absolute;
+			top:0;
+			right:0;
+		}		
+		.title_right_div1{
+			margin-top:10px;
+			line-height:30px;
+			color:#000000;
+			font-family:'SimHei';
+		}
+		.title_right_div1 p{
+			text-transform:capitalize;
+			font-size:24px;
+			text-decoration:underline;
+		}
+		.title_right_div2{
+			line-height:10px;
+			color:#676767;
+			font-family:'KaiTi';
+			font-size:12px;
+		}
+		.title_right_div3 i{
+			color:#75b86b;
+			font-size:116px;
+			font-family:'SimHei';
+		}
+		.title_right_div4{
+			font-family:'SimHei';
+			color:#cc8091;
+			position:relative;
+		}
+		.title_right_div4 span{
+			font-size:55px;
+		}
+		.right_div4_p1{
+			font-size:21px;
+		}
+		.right_div4_p2{
+			font-size:12px;
+		}
+		.title_right_div4 div{
+			position:absolute;
+			bottom:10px;
+			left:90px;
+		}
+		.paper_content{
+			width:641px;
+			height:172px;
+		}
+		.paper_content_left,.paper_content_middle,.paper_content_right{
+			margin-top:40px;
+			float:left;
+			height:170px;
+			font-family:'SimHei';
+
+		}
+		.paper_content_left{
+			width:230px;
+		}		
+		.paper_content_middle{
+			width:210px;
+			margin:40px 30px;
+		}		
+		.paper_content_right{
+			width:140px;
+		}
+		.content_title{
+			font-size:16px;
+			text-decoration:underline;
+		}
+		.content_left_title{
+			color:#418c59;
+		}
+		.content_middle_title{
+			color:#d2994f;
+		}
+		.content_right_title{
+			color:#cc7680;
+		}
+		.content_content{
+			margin-top:10px;
+			font-family:'SimHei';
+		}
+		.content_right{
+			margin-bottom:15px;
+		}
+		.paper_detail_left{
+			margin-top:60px;
+			width:415px;
+			height:618px;
+			float:left;
+		}
+		.paper_detail_right{
+			margin-top:60px;
+			margin-left:19px;
+			width:458px;
+			height:618px;
+			float:left;
+		}
+		.detail_left_top{
+			width:415px;
+			height:160px;
+			border-bottom:2px solid #11456b;
+			font-family:'Heiti';
+			font-weight:bold;
+			color:#11456b;
+			line-height:40px;
+		}
+		.dlt_p1{
+			font-size:42px;
+		}
+		.dlt_p1 i{
+			font-size:72px;
+			color:#f5e327;
+		}
+		.dlt_p2{
+			font-size:33px;
+		}
+		.detail_left_bottom{
+			margin-top:15px;
+		}
+		.detail_left_bottom p{
+			font-family:'SimSun';
+			color:#767777;
+			font-size:12px;
+			line-height:16px;
+			letter-spacing:2px;/* 字间距 */
+		}
+		.left_bottom_p{
+			text-indent:2em;
+		}
+		.detail_left_bottom span{
+			font-size:70px;
+			color:#f5e327;
+			font-family:'SimHei';
+			float:left;
+		}
+		.detail_left_bottom img{
+			float:right;
+			margin:15px 0 15px 15px;
+		}
+		.detail_right_top{
+			position:relative;
+			width:458px;
+			height:257px;
+		}
+		.right_top_img2{
+			position:absolute;
+			bottom:0;
+		}
+		.right_top_p{
+			position:absolute;
+			bottom:5px;
+			height:44px;
+			border-left:3px solid #72b16a;
+			font-size:26px;
+			color:#ffffff;
+			font-family:'SimHei';
+			line-height:44px;
+			margin-left:40px;
+			padding-left:15px;
+		}
+		.right_top_p i{
+			font-size:12px;
+			color:#72b16a;
+		}
+		.detail_right_bottom{
+			width:458px;
+			height:318px;
+			background-image:url('img/log8.png');
+			background-repeat:no-repeat;
+			position:relative;
+			margin-top:30px;
+		}
+		.right_bottom_triangle{
+			width:0;
+			height:0;
+			border-width:0px 7px 10px 7px;
+			border-color:#3A4E9B transparent; /* transparent为了将边框的颜色显示出来，置顶 */
+			border-style:solid;
+			/* margin-top:25px; */
+			display:inline-block;
+		}
+		.right_bottom_wrapper{
+			/* margin-top:30px; 无效,因为还没有填充内容 */
+			margin-left: 20px;
+    		line-height: 50px;
+		}
+		.right_bottom_img{
+			position:absolute;
+			left:0;
+			bottom:0;
+			background-image:url('img/log9.png');
+			background-repeat:no-repeat;
+			width:260px;
+			height:160px;
+		}
+		.bottom_img_left{
+			color:#fff;
+			font-size:110px;
+			font-family:'SimHei';
+			margin:35px 10px;
+			border-right:2px solid #fff;
+			height:86px;
+			line-height: 86px;
+    		width: 60px;
+    		float:left;
+
+
+		}
+		.bottom_img_right{
+			
+			font-size:21px;
+			font-family:'SimHei';
+			float:left;
+			color:#ffffff;
+			margin: 40px 10px;
+			width:120px;
+		}
+		.img_right_text{
+			font-size:8px;
+		}
+		.right_bottom_text{
+			width:160px;
+			position:absolute;
+			right:10px;
+			bottom:30px;
+		}
+		.right_bottom_text span{
+			font-size:14px;
+			font-size:#5a5a5b;
+			font-family:'SimHei';
+		}
+		footer{
+			clear:both;
+			border-top:1px solid #938e8c;
+			position:relative;
+		}
+		footer span{
+			position:absolute;
+			top:0;
+			right:0;
+			font-size:12px;
+			color:#d45d5c;
+			font-family:'SimHei';
+		}
+	</style>
+</head>
+<body>
+	<!-- paper的外边框 开始 -->
+	<div class='wrapper_paper'>
+	<!-- paper的内容 开始 -->
+		<div class='middle_paper'>
+			<!-- paper的头部 开始 -->
+			<header>
+				<span class='header_textl'>ife.baidu.com</span>
+				<span class='header_text2'>2016.03</span>
+			</header>
+			<!-- paper的头部 结束 -->
+			<!-- paper的body 开始 -->
+			<div class='paper'>
+				<!-- paper的body第一部分 开始 -->
+				<div class='paper_title'>
+					<div class='paper_title_left'>
+						<img src='img/log3.png' class='title_left_img1'>
+						<img src='img/log2.png' class='title_left_img2'>
+					</div>
+					<div class='paper_title_right'>
+						<div class='title_right_div1'>
+							<p>ABOUT</p>
+							<p>TECHNOLOGE</p>
+						</div>
+						<div class='title_right_div2'>
+							<p>About technology about technology about technology</p>
+						</div>
+						<div class='title_right_div3'>
+							<i>700</i>
+						</div>
+						<div class='title_right_div4'>
+							<span>3.2</span>
+							<div>
+								<p class='right_div4_p1'>css</p>
+								<p class='right_div4_p2'>csscsscsscss</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- paper的body第一部分 结束 -->
+				<!-- paper的body第二部分 开始 -->
+				<div class='paper_content'>
+					<div class='paper_content_left'>
+						<p class=' content_title content_left_title'>What</p>
+						<p class='content_content'>前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端</p>
+					</div>
+					<div class='paper_content_middle'>
+						<p class='content_title content_middle_title'>When</p>
+						<p class='content_content'>前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端</p>
+					</div>
+					<div class='paper_content_right'>
+						<p class='content_title content_right_title'>How</p>
+						<p class='content_content content_right'>前端前端前端前端前端前端前端前端前端前端前端前端</p>
+						<p>What----<i class='content_right_title'>40%</i></p>
+						<p>What----<i class='content_right_title'>30%</i></p>
+						<p>What----<i class='content_right_title'>30%</i></p>
+					</div>
+				</div>
+				<!-- paper的body第二部分 结束 -->
+				<!-- paper的body第三部分 开始 -->
+				<div class='paper_detail'>
+					<div class='paper_detail_left'>
+						<div class='detail_left_top'>
+							<p class='dlt_p1'><i>THE </i>TECHNOLOGE OF FRONT</p>
+							<P class='dlt_p2'>前端技术领域</P>
+						</div>
+						<div class='detail_left_bottom'>
+							<span>前</span><p>前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端<img src="img/log5.png" height="288" width="167">前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端</p>
+							<p class='left_bottom_p'>前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前</p>
+							<p class='left_bottom_p'>前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前</p>
+						</div>
+					</div>
+					<div class='paper_detail_right'>
+						<div class='detail_right_top'>
+							<img class='right_top_img1' src="img/log6.png" height="257" width="458">
+							<img class='right_top_img2' src='img/log7.png' height="60" width="458">
+							<p class='right_top_p'>前端技术<i>前端技术前端技术</i></p>
+						</div>
+						<div class='detail_right_bottom'>
+							<div class='right_bottom_wrapper'>
+								<div class='right_bottom_triangle'></div><span>前端前端前端前端前端前端........................前端</span>
+								<div class='right_bottom_triangle'></div><span>前端前端前端前端................................前端</span>
+								<div class='right_bottom_triangle'></div><span>前端前端前端前端前端前端前端....................前端</span>
+							</div>
+							<div class='right_bottom_img'>
+								<div class='bottom_img_left'>O</div>
+								<div class='bottom_img_right'><p>onetwo</p><p>threefourfive</p><p class='img_right_text'>hello world hello world hello world</p></div>
+							</div>
+							<div class='right_bottom_text'>
+								
+								<span>"hello world hello world hello world hello world hello world hello world hello world hello world"</span>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- paper的body第三部分 结束 -->
+			</div>
+			<!-- paper的body 结束 -->
+			<footer>
+				<span>ife.baidu.com</span>
+			</footer>
+		</div>
+		<!-- paper的内容 结束 -->
+	</div>
+	<!-- paper的外边框 结束 -->
+</body>
+</hrml>
