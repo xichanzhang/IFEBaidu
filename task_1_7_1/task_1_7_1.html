@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task_1_7_1</title>
+	<style type="text/css">
+		ul,li,p{
+			margin: 0;/* 原始有margin padding，初始化为0 */
+			padding: 0;
+		}
+		.wrapper{
+			width: 1280px;
+			margin: 0 auto;
+		}
+		.heiti{
+			font-family: "simHei"
+		}
+		.weiruanyahei{
+			font-family:"Microsoft YaHei";
+		}
+		.huawenfangsong{
+			font-family: "STFangsong";
+		}
+		.songti{
+			font-family: "SimSun";
+		}
+		header{
+			height: 55px;
+		}
+		.content{
+			margin-top: 3px;
+		}
+		.h_span{
+			font-size: 21px;
+			line-height:55px;
+			margin-left: 50px;
+		}
+		.h_ul{
+			float: right;
+			list-style: none;
+			margin-right: 140px;
+		}
+		.h_ul li{
+			width: 65px;
+			font-size: 14px;
+			color: #b5b7bb;
+			float: left;/* 水平一列 */
+			margin-left: 20px;
+			text-align: center; /* 文字水平居中 */
+			line-height: 55px;
+		}
+		.h_ul li:hover{
+			color: #ef4f4d;
+			border-bottom: 4px solid #ef4f4d;
+			cursor: pointer;
+		}
+		.h_ul_login{
+			color: #ef4f4d;
+			line-height: 55px;
+			margin-left: 25px;
+			padding-left: 20px;
+			background-image: url(log1.png);
+			background-repeat: no-repeat;
+			cursor: pointer;
+			/* float: right; 不浮动会紧挨着浮动前面的元素，即新世界后面，浮动右，则会在前一个浮动的左边，因为前一个浮动也是有浮动，先来后到,所以没有单独拎出来，而是放在了ul中*/
+		}
+		.content_begin{
+		    width: 1280px; /*若不给出尺寸，图片显示不出来，但是如果div里面有元素就会显示撑开*/
+			height: 854px; 
+			position: relative; /* 为了使img遮罩absolute */
+		}
+		.content_begin img{
+			position: absolute;
+			left: 0;
+			top: 0;
+		} 
+		.c_begin_text{
+			padding-top: 220px;
+			padding-left: 106px;
+			color: #ffffff;
+			position: absolute; /* 显示 */
+			/* z-index: 2; 字体还是在遮罩下面，所以还是改成两个img重叠吧，放在text前面 */
+		}
+		.c_b_text_t1{
+			font-size: 60px;
+		}
+		.c_b_text_t2{
+			margin-top: 30px;
+			font-size: 21px;
+		}
+		.c_begin_button{
+			position: absolute;
+			margin-top: 430px;
+			margin-left: 106px;
+			width: 333px;
+			height: 65px;
+			background-color: #ef4f4d; 
+			border: none; /* 取消边框 */
+			outline:none;/* 取消点击的蓝色边框 */
+			font-size: 30px;
+			color: #ffffff;
+			cursor: pointer;
+		}
+		.content_logo{
+			height: 250px;
+		}
+		.c_logo_wrapper{
+			width: 310px;
+			float: left;
+			text-align: center;
+			margin-top:45px; 
+		}
+		.c_logo_wrapper div{
+			margin-top: 45px;
+			height: 30px;
+			border-right: 1px solid #b5b7bb; 
+			font-size: 14px;
+			font-family: "simHei"
+		}
+		.content_form{
+			position: relative;
+
+		}
+		.content_form_top{
+			height: 361px;
+			background-image: url(log8.png);
+			text-align: center;
+		}
+		.content_form_top img{
+			margin-top: 90px;
+			margin-bottom: 50px;
+		}
+		.content_form_top p{
+			font-size: 54px;
+			color: #b5b7bb;
+		}
+		.content_form_mid{
+			height: 342px;
+			overflow: hidden;
+		}
+		.content_form_mid{
+			height: 342px;
+			background: url(log11.png),url(log10.png); 
+		}
+		.c_f_mid_p1{
+			color: #ffffff;
+			text-align: center;
+			font-size:21px; 
+			margin-top: 50px;
+		}
+		.c_f_mid_p2{
+			color: #ffffff;
+			text-align: center;
+			font-size:12px; 
+			margin-top: 35px;
+		}
+		.c_f_mid_form{
+			/* text-align: center; */
+			margin-top: 55px;
+			margin-left: 80px;
+		}
+		.mid_form_select{
+			list-style: none;
+
+		}
+		.form_select_li{
+			float: left;
+			width: 220px;
+			height: 40px;
+			padding-left: 20px;
+			border:1px solid #dacac3;
+			margin-left: 30px;
+			line-height: 40px;
+			background-color: #ffffff;
+			cursor:pointer;
+			color: #a8aaaa;
+			font-size: 12px;
+		}
+		.form_select_li:hover{
+			border: 1px solid #be4e48;
+		}
+		.c_f_mid_form input{
+			width: 242px;
+			height: 42px;
+			float: left; /* 浮动后面的元素float */
+			margin-left: 30px;
+			outline: none; /* 取消悬浮边框 ，无效，使用hover*/
+			border: none;
+			background-color: #be4e48;
+			font-family: "Microsoft YaHei";
+			font-size: 14px;
+			color: #ffffff;
+			letter-spacing: 30px; /* 字与字之间空隙 */
+			/* text-align: center; 字体居中不能用 */
+			padding-left: 30px;
+		}
+		.c_f_mid_form input:hover{
+			display: block;
+			border: none;
+			cursor: pointer;
+		}
+		.select_li_ul{
+			display: none;
+			list-style: none;
+			width: 240px;
+			border: 1.111px solid #dacac3;
+			border-top: none;
+    		margin-left: -20.8px;
+    		text-indent: 30px;
+    		background-color: #e3e3e4;
+		}
+		.select_li_ul:hover{
+			border-color: #be4e48;
+
+		}
+		.select_li_ul li:hover{
+			background-color: #be4e48;
+			color: #ffffff;
+		}
+		.content_form_bottom{
+			height: 605px;
+			background-color: #f8f8f7;
+		}
+		.content_form_bottom{
+			position: relative;
+		}
+		.form_bottom_wrapper{
+			position: absolute;
+		}
+		.content_form_bottom .pos1{
+			left: 150px;
+			top:100px;
+		}
+		.content_form_bottom .pos2{
+			left: 403px;
+			top:155px;
+		}
+		.content_form_bottom .pos3{
+			left: 660px;
+			top:100px;
+		}
+		.content_form_bottom .pos4{
+			left: 915px;
+			top:100px;
+		}
+		.bottom_w_imgw{
+			width: 220px;
+			height: 340px;
+			border:1px solid #e0e0e0;
+			background-color: #ffffff;
+		}
+		.bottom_w_imgw img{
+			margin: 12px 8px 12px 8px;
+		}
+		.bottom_w_pw{
+			text-align: center;
+			line-height: 30px;
+    		margin-top: 15px;
+		}
+		.bottom_w_pw .p1{
+			font-family: "Microsoft YaHei";
+			font-size: 16px;
+			color: #323333;
+		}
+		.bottom_w_pw .specialp{
+			font-size: 20px;
+			/* text-align:justify; 文字两端对齐*/
+			letter-spacing: 30px; /* 文字间距 */
+    		margin-left: 20px;
+		}
+		.form_bottom_wrapper .specialw{
+			position: absolute;
+		    top: -75px;
+		    width: 222.222px;
+		    height: 60px;
+
+		}
+		.bottom_w_pw .p2{
+			font-family: "Microsoft YaHei";
+			font-size: 12px;
+			color: #888989;
+		}
+		.intro_img_top{
+			position: relative;
+			height: 568px;
+		}
+		.intro_img_text{
+			position: absolute;
+			top: 130px;
+			left: 240px;
+			width: 380px;
+			height: 280px;
+			text-align: center;
+		}
+		.intro_img_text .p1{
+			font-size: 50px;
+			color: #ffffff;
+		}
+		.intro_img_text .p2{
+			font-size: 158px;
+			color: #ffffff;
+		}
+		.intro_img_text .p3{
+			font-size: 22px;
+			color: #ffffff;
+		}
+		.c_intro_img{
+			height: 1090px;
+		}
+		.intro_img_top img{
+			float: left;
+		}
+		.i_i_top_textw{
+			float: left;
+			width: 300px;
+			margin-left:66px;
+			margin-top: 160px;
+			text-align: center;
+		}
+		.i_i_top_textw .b1{
+			font-size: 20px;
+			color: #323333;
+			line-height: 60px;
+		}
+		.i_i_top_textw .b2{
+			line-height: 30px;
+    		letter-spacing: 1px;
+			font-size: 12px;
+			color: #262626;
+		}
+		.i_i_top_textw span{
+			color: #e74f4d;
+		}
+		.top_textw_btn{
+			margin: 0 auto;
+			margin-top: 50px;
+			border: 1px solid #e46669;
+			width: 110px;
+			height: 35px;
+			cursor: pointer;
+		}
+		.top_textw_btn span{
+			line-height: 35px;
+			color: #e46669;
+		}
+		.top_textw_circle{
+			margin: 0 auto;
+			margin-top: 20px;
+			width: 80px;
+			height: 20px;
+		}
+		.top_textw_circle .c1{
+			float: left;
+			border: 1px solid #929292;
+			height: 13px;
+			width: 13px;
+			border-radius: 50%;
+			background-color: #929292;
+		}
+		.top_textw_circle .c2{
+			float: left;
+			border: 1px solid #929292;
+			height: 13px;
+			width: 13px;
+			border-radius: 50%;
+			margin-left:15px; 
+		}
+		.top_textw_circle .c3{
+			float: left;
+			border: 1px solid #929292;
+			height: 13px;
+			width: 13px;
+			border-radius: 50%;
+			margin-left:15px; 
+		}
+		.intro_img_bottom{
+			height: 520px;
+    		width: 1280px;
+    		position: relative;
+		}
+		.intro_img_bottom .img1{
+			position: absolute;
+		}
+		.intro_img_bottom .img2{
+			position: absolute;
+			right: 0;
+		}
+		.img_bottom_text{
+			position: absolute;
+			left: 426px;
+			padding-top: 170px;
+    		text-align: center;
+    		line-height: 30px;
+    		width: 425px;
+		}
+		.img_bottom_text .p1{
+			font-size: 21px;
+			color: #000000;
+		}
+		.img_bottom_text .p2{
+			font-size: 21px;
+			color: #ffffff;
+		}
+		.img_bottom_text .btn{
+			width: 173px;
+			height: 46px;
+			border: 1px solid #ed7b7a;
+			color: #ed7b7a;
+			font-weight: bold;
+			line-height: 46px;
+			text-align: center;
+			margin: 0 auto;
+		}
+		.img_bottom_text .btn2{
+			border-color: #ffffff;
+			color: #ffffff;
+		}
+		.intro_img_bottom .left{
+			position: absolute;
+    		left: 0;
+		}
+		.c_intro_join{
+			height: 750px;
+		}
+		.intro_join_top{
+			width: 172px;
+			height: 30px;
+			font-size: 21px;
+			color: #323333;
+			margin: 0 auto;
+			padding-top: 115px;
+		}
+		.intro_join_mid{
+			width: 428px;
+			height: 38px;
+			margin:0 auto;
+			padding-top: 20px;
+			font-size: 12px;
+			color: #b7b7b7;
+		}
+		.intro_join_bottom{
+			width: 1020px;
+			height: 300px;
+			margin:0 auto;
+			margin-top: 100px;
+			position: relative;
+		}
+		.bottom_left_div{
+			width: 295px;
+			height: 96px;
+		}
+		.bottom_left_div .p1{
+			margin-top: 40px;
+			font-size: 14px;
+			color: #666160;
+			font-weight: bold;
+		}
+		.bottom_left_div .p2{
+			font-size: 12px;
+			color: #9d9b9a;
+			padding-top: 25px;
+		}
+		.bottom_left_div .p3{
+			font-size: 12px;
+			color: #9d9b9a;
+			float: right;
+		}
+		.join_bottom_right{
+			width: 645px;
+			height: 368px;
+			position: absolute;
+			left: 295px;
+    		top: 0;
+    		margin-left: 70px;
+    		color: #6c6868;
+		}
+		.bottom_right_div{
+			background-color: #ededee;
+			height:40px;
+			width: 312px;
+			font-size: 12px;
+			line-height: 40px;
+			text-indent: 10px; /* 文本缩进 */
+			float: left;
+    		margin: 5px;
+		}
+		.bottom_right_div_sp{
+			background-color: #ededee;
+			height:120px;
+			width: 638px;
+			font-size: 12px;
+			line-height: 120px;
+			text-indent: 10px; /* 文本缩进 */
+    		margin: 5px;
+    		float: left;
+		}
+		.bottom_right_div_sbm{
+			background-color: #ededee;
+			height:40px;
+			width: 638px;
+			font-size: 12px;
+			line-height: 40px;
+			text-align: center;
+    		margin: 5px;
+    		float: left;
+		}
+		.content_contact{
+			width: 1280px;
+			height: 367px;
+			background-color: #32353e;
+			overflow: hidden;
+		}
+		.c_c1{
+			width: 97px;
+			height: 32px;
+			color: #ffffff;
+			font-size: 21px;
+			margin: 0 auto;
+			margin-top: 92px;
+		}
+		.c_c2{
+			width: 472px;
+			height: 60px;
+			color: #ffffff;
+			font-size: 12px;
+			margin: 0 auto;
+			text-align: center;
+		}
+		.c_c3{
+			width: 510px;
+			height: 100px;
+			margin: 0 auto;
+		}
+		.c_c3 .in1{
+			width: 410px;
+			height: 40px;
+			padding-left: 10px;
+			border: 1px solid #a5a6aa;
+			float: left;
+			color: #aaaaaa;
+			font-size: 15px;
+			outline: none;
+		}
+		.c_c3 .in2{
+			width: 80px;
+			height: 45px;
+			border: 1px solid #a5a6aa;
+			border-left: none;
+			background-color: #6f7278;
+			color: #ffffff;
+			font-size: 14px;
+			cursor: pointer;
+			outline: none;
+		}
+		.c_c3 .in2:hover{
+			background-color: #7d7f85;
+		}
+		.c_c3 .in2:active{
+			background-color: #5f636a;
+		}
+		.c_c4{
+			width: 205px;
+			height: 42px;
+			margin: 0 auto;
+		}
+		footer{
+			height: 60px;
+			background-color: #2f3038;
+			position: relative;
+		}
+		.f_span1{
+			position: absolute;
+			left: 100px;
+			top: 30px;
+			color: #ffffff;
+			font-size: 12px;
+		}
+		.f_span2{
+			position: absolute;
+			right: 100px;
+			top: 30px;
+			color: #ffffff;
+			font-size: 12px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<header>
+			<span class="h_span heiti">新世界</span>
+			<ul class="h_ul weiruanyahei">
+				<li>首页</li>
+				<li>最新活动</li>
+				<li>项目介绍</li>
+				<li>爱心社区</li>
+				<li>关于我们</li>
+				<span class="h_ul_login weiruanyahei">登录</span>
+			</ul>
+		</header>
+		<div class="content">
+			<div class="content_begin">
+				<img src="log2.png">
+				<img src="log3.png"> <!-- 遮罩图片在div下面设置,否则会把上面的div挤下来就会在上面一层，不行，因为上面的text会在遮罩下面，还是要将图片放在上面 -->
+				<div class="c_begin_text"> <!-- 文字不显示 解决：加上position：absolute-->
+					<p class="c_b_text_t1 weiruanyahei">Time of new life</p>
+					<p class="c_b_text_t2 weiruanyahei">新时代，年轻的人民让我们一起<br>体验新生活，享受新生活</p>
+				</div>
+				<input class="c_begin_button weiruanyahei" type="button" value="开始体验"></input>
+			</div>
+			<div class="content_logo">
+				<div class="c_logo_wrapper">
+					<img src="log4.png">
+					<div>打造全新世界观，让你更<br>爱你的生活</div>
+				</div>
+				<div class="c_logo_wrapper">
+					<img src="log5.png">
+					<div>丰富多彩的公益活动，发<br>挥新世界的主人公意识</div>
+				</div>
+				<div class="c_logo_wrapper">
+					<img src="log6.png">
+					<div>时尚的新理念，超前体验<br>未知的生活</div>
+				</div>
+				<div class="c_logo_wrapper">
+					<img src="log7.png">
+					<div>完善的培养机制，培养你<br>全新的世界观</div>
+				</div>
+			</div>
+			<div class="content_form">
+				<div class="content_form_top">
+					<img src="log9.png">
+					<p class="heiti">关于新世界，你不知道的还有什么？</p>
+				</div>
+				<div class="content_form_mid">
+					<p class="c_f_mid_p1 weiruanyahei">查找新世界城市活动信息</p>
+					<p class="c_f_mid_p2 weiruanyahei">每个城市的有不同的活动信息，请自主查询您所需要了解的城市</p>
+					<form class="c_f_mid_form">
+						<!-- 自己用ul和li做下拉菜单，可以更该样式，select太局限 -->
+						<!-- <select name="nationality">
+							<option value="china" selected>中国</option>
+							<option value="others">其他国家</option>
+						</select>
+						<select name="province">
+							<option value="beijing" selected>北京市</option>
+							<option value="tianjin">天津市</option>
+							<option value="hebei">河北省</option>
+							<option value="shanxi">陕西省</option>
+							<option value="neimenggu">内蒙古自治区</option>
+							<option value="liaoning">辽宁省</option>
+						</select>
+						<select name="city" value="城市">
+						
+						</select> -->
+						<ul class="mid_form_select weiruanyahei">
+							<li class="form_select_li" name="nation"><span>国家</span>
+								<ul class="select_li_ul"> <!-- ul有padding，因为上一级的有padding -->
+									<li>中国</li>
+									<li>其他国家</li>
+								</ul>
+							</li>
+							<li class="form_select_li" name="province"><span>省份</span>
+								<ul class="select_li_ul">
+									<li>北京市</li>
+									<li>天津市</li>
+									<li>河北省</li>
+									<li>陕西省</li>
+									<li>内蒙古自治区</li>
+									<li>辽宁</li>
+								</ul>
+							</li>
+							<li class="form_select_li" name="city"><span>城市</span>
+								<ul class="select_li_ul">
+									<li>中国</li>
+									<li>其他国家</li>
+								</ul>
+							</li>
+						</ul>
+						<input type="submit" value="搜索">
+					</form>
+				</div>
+				<div class="content_form_bottom">
+					<div class="form_bottom_wrapper pos1">
+						<div class="bottom_w_imgw"><img src="log12.png"></div>
+						<div class="bottom_w_pw">
+						<p class="p1">北京活动</p>
+						<p class="p2">新社区大联盟</p>
+						</div>
+					</div>
+					<div class="form_bottom_wrapper pos2">
+						<div class="bottom_w_imgw"><img src="log13.png"></div>
+						<div class="bottom_w_pw specialw">
+						<p class="p1 specialp">上海活动</p>
+						<p class="p2">夜上海新景观探索</p>
+						</div>
+					</div>
+					<div class="form_bottom_wrapper pos3">
+						<div class="bottom_w_imgw"><img src="log14.png"></div>
+						<div class="bottom_w_pw">
+						<p class="p1">深圳活动</p>
+						<p class="p2">全新海岸线观景站</p>
+						</div>
+					</div>
+					<div class="form_bottom_wrapper pos4">
+						<div class="bottom_w_imgw"><img src="log15.png"></div>
+						<div class="bottom_w_pw">
+						<p class="p1">香港活动</p>
+						<p class="p2">奢侈消费大派送</p>
+						</div>
+					</div>					
+				</div>
+			</div>
+			<div class="content_intro">
+				<div class="c_intro_img">
+					<div class="intro_img_top">
+						<img src="log16.png">
+						<div class="i_i_top_textw">
+							<b class="b1 huawenfangsong">新世界/<span>01</span></b><br>
+							<b class="b2 songti">新世界是个新世界新世界是个新世界新世界是个新世界 新世界是个新世界新世界是个新世界新世界是个新世界 新世界是个新世界新世界是个新世界新世界是个新世界 新世界是个新世界</b>
+							<div class="top_textw_btn">
+								<span weiruanyahei>更多详情</span>
+							</div>
+							<div class="top_textw_circle">
+								<div class="c1"></div>
+								<div class="c2"></div>
+								<div class="c3"></div>
+							</div>
+						</div>
+						<div class="intro_img_text">
+							<p class="p1 weiruanyahei">新世界</p>
+							<p class="p2 weiruanyahei">TIME</p>
+							<p class="p3 weiruanyahei">@新世界-北京</p>
+							<p class="p3 weiruanyahei">2016.04.01</p>
+						</div>
+					</div>
+					<div class="intro_img_bottom">
+						<img class="img1" src="log17.png">
+						<div class="img_bottom_text">
+							<p class="p1 heiti">新时代</p>
+							<p class="p1 heiti">关爱生活的我们</p>
+							<br>
+							<div class="btn">查看更多</div>
+						</div>
+						<div class="img_bottom_text left">
+							<p class="p1 heiti p2">新时代</p>
+							<p class="p1 heiti p2">关爱生活的我们</p>
+							<br>
+							<div class="btn btn2">查看更多</div>
+						</div>
+						<img class="img2" src="log18.png">
+						<img class="img2" src="log19.png">
+					</div>
+				</div>
+				<div class="c_intro_join">
+					<div class="intro_join_top">
+						<span class="heiti">成为我们的志愿者</span>
+					</div>
+					<div class="intro_join_mid">
+						<span>新世界的大家庭需要每一个爱生活的人的加入，如果你够年轻，有梦想，有激情那就不要犹豫，快来加入我们，成为改变所有人生活的人。</span>
+					</div>
+					<div class="intro_join_bottom">
+						<div class="join_bottom_left">
+							<div class="bottom_left_div">
+								<p class="p1 heiti">新世界志愿者协议</p>
+								<p class="p2 songti">加入新世界志愿者的人员必须遵守中华人民共共和国的 相关法律法规，并且本着平等资源的原则 ......</p>
+								<p class="p3 songti">more</p>
+							</div>
+							<div class="bottom_left_div">
+								<p class="p1 heiti">新世界志愿者权利</p>
+								<p class="p2 songti">新世界志愿者享受新世界内部所有资源共享的权利，并享受所在新世界活动的有限参与资格</p>
+								<p class="p3 songti">more</p>
+							</div>
+							<div class="bottom_left_div">
+								<p class="p1 heiti">更多条款</p>
+								<p class="p3 songti">more</p>
+							</div>
+						</div>
+						<div class="join_bottom_right songti">
+							<div class="bottom_right_div">姓名:</div>
+							<div class="bottom_right_div">年龄:</div>
+							<div class="bottom_right_div">联系方式:</div>
+							<div class="bottom_right_div">联系地址:</div>
+							<div class="bottom_right_div_sp">请简单描述您的梦想生活:</div>
+							<div class="bottom_right_div_sbm">提交申请</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="content_contact">
+				<div class="c_c1 heiti">
+					<span>联系我们</span>
+				</div>
+				<div class="c_c2 songti">
+					<span>为了更好的获取我们最新的产品资讯，您可以留下您的电子邮箱快速订阅我们的产品资讯也可以通过以下任何方式关注我们动态</span>
+				</div>
+				<div class="c_c3 weiruanyahei">
+					<!-- placeholder 提示性文字，输入后就消失 -->
+					<input type="text" class="in1" placeholder="someone@email.com"></input>
+					<input type="submit" class="in2"></input>
+				</div>
+				<div class="c_c4">
+					<img src="log20.png">
+					<img src="log21.png">
+					<img src="log22.png">
+					<img src="log23.png">
+				</div>
+			</div>
+		</div>
+		<footer>
+			<span class="f_span1 songti">@2016新世界</span>
+			<span class="f_span2 songti">back to top</span>
+		</footer>
+	</div>
+
+</body>
+</html>
